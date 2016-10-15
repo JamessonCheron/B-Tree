@@ -17,3 +17,5 @@ void insere_chave( Btree *raiz, int info, Btree *filhodir);
 Btree *insere( Btree *raiz, int info, int *h, int *info_retorno);
 
 Btree *insere_avoreB(Btree *raiz, int info);
+
+Btree *novaFolha();
