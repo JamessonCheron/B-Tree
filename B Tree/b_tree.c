@@ -6,7 +6,7 @@ struct Node
 {
 	int num_chaves;
 	int chaves[MAX_CHAVES];
-	struct Btree *filhos[MAZ_FILHOS];
+	Btree *filhos[MAZ_FILHOS];
 
 };
 
@@ -83,6 +83,7 @@ Btree *insere( Btree *raiz, int info, int *h, int *info_retorno)
 		{
 			printf("Chave ja contida na Arvore");
 			*h = 0;
+			return raiz;
 		}
 		else
 		{
@@ -98,7 +99,7 @@ Btree *insere( Btree *raiz, int info, int *h, int *info_retorno)
 				}
 				else
 				{
-					temp = (Btree *)malloc(sizeof(Btree));
+					temp = novaFolha();
 					temp->num_chaves = 0;
 					//incicializa filhos com NULL
 					for (i = 0; i < MAZ_FILHOS; i++)
@@ -110,7 +111,7 @@ Btree *insere( Btree *raiz, int info, int *h, int *info_retorno)
 					info_mediano = raiz->chaves[MIN_OCUP];
 
 					//insere metade do nó raiz no temp (edetua subdivisão)
-					temp->filhos[0] = raiz->chaves[MIN_OCUP + 1];
+					temp->filhos[0] = raiz->filhos[MIN_OCUP + 1];
 
 					for (i = MIN_OCUP + 1; i < MAX_CHAVES; i++)
 					{
@@ -144,6 +145,8 @@ Btree *insere( Btree *raiz, int info, int *h, int *info_retorno)
 				}
 
 			}
+
+			return raiz;
 		}
 
 
@@ -159,7 +162,7 @@ Btree *insere_avoreB(Btree *raiz, int info)
 
 	if (h)
 	{
-		nova_raiz = (Btree *)malloc(sizeof(Btree));
+		nova_raiz = novaFolha();
 		nova_raiz->num_chaves = 1;
 		nova_raiz->chaves[0] = info_retorno;
 		nova_raiz->filhos[0] = raiz;
@@ -171,8 +174,11 @@ Btree *insere_avoreB(Btree *raiz, int info)
 		}
 
 	}
-	else
-	{
 		return raiz;
-	}
+}
+
+Btree *novaFolha()
+{
+	Btree *nova = (Btree*)malloc(sizeof(Btree));
+	return nova;
 }

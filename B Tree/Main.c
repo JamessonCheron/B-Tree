@@ -12,9 +12,8 @@ int main()
 	int opt;
 	Btree *arvereB = NULL;
 	
-	opt =  menu();
-
 	do{
+		opt = menu();
 		opcao(arvereB, opt);
 	}while(opt);
 	
@@ -40,7 +39,6 @@ int menu( )
 	printf("4. Remover registro\n");
 	linha();
 	printf("Escolha uma opcao: "); fflush(stdin); scanf("%d", &opt);
-	
 	
 	return opt;
 }
