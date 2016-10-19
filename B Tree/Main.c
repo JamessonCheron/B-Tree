@@ -14,7 +14,36 @@ int main()
 	
 	do{
 		opt = menu();
-		opcao(arvereB, opt);
+
+		switch(opt)
+		{
+		case 0:
+			return;
+			break;
+			
+		case 1:
+			arvereB = insere_avoreB( arvereB, inserirValor());
+			break;
+		
+		case 2:
+			//printf("Funcinou!! :)\n");
+			break;
+
+		case 3:
+			traversal(arvereB);
+			break;
+		
+		case 4:
+			deletion(inserirValor(), arvereB);
+			break;		
+		
+		default:
+			printf("Comando invalido\n\n");
+		}
+		system("pause");
+		system("cls");
+
+		//opcao(arvereB, opt);
 	}while(opt);
 	
 	return 0;
@@ -53,7 +82,7 @@ void opcao(Btree *btree, int op)
 			break;
 			
 		case 1:
-			insere_avoreB( btree, inserirValor());
+			btree = insere_avoreB( btree, inserirValor());
 			break;
 		
 		case 2:
@@ -61,11 +90,11 @@ void opcao(Btree *btree, int op)
 			break;
 
 		case 3:
-			//Remove();
+			traversal(btree);
 			break;
 		
 		case 4:
-			//show_contact(Search());
+			deletion(inserirValor(), btree);
 			break;		
 		
 		default:
