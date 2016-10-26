@@ -1,4 +1,5 @@
 ﻿  Main.c
   b_tree.c
   Generating Code...
+c:\users\jamesson\documents\github\b-tree\b tree\b_tree.c(165): warning C4715: 'insere' : not all control paths return a value
   B Tree.vcxproj -> C:\Users\jamesson\Documents\GitHub\B-Tree\Debug\B Tree.exe

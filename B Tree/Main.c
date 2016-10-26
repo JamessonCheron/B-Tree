@@ -22,15 +22,15 @@ int main()
 			break;
 			
 		case 1:
-			arvereB = insere_avoreB( arvereB, inserirValor());
+			arvereB = insere_arvoreB( arvereB, inserirValor());
 			break;
 		
 		case 2:
-			//printf("Funcinou!! :)\n");
+			search_value( arvereB, inserirValor());
 			break;
 
 		case 3:
-			traversal(arvereB);
+			listBTree(arvereB, 0);
 			break;
 		
 		case 4:
@@ -43,7 +43,6 @@ int main()
 		system("pause");
 		system("cls");
 
-		//opcao(arvereB, opt);
 	}while(opt);
 	
 	return 0;
@@ -82,15 +81,15 @@ void opcao(Btree *btree, int op)
 			break;
 			
 		case 1:
-			btree = insere_avoreB( btree, inserirValor());
+			btree = insere_arvoreB( btree, inserirValor());
 			break;
 		
 		case 2:
-			//printf("Funcinou!! :)\n");
+			search_value( btree, inserirValor());
 			break;
 
 		case 3:
-			traversal(btree);
+			listBTree(btree, 0);
 			break;
 		
 		case 4:
